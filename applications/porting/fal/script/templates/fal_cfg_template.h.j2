@@ -1,0 +1,49 @@
+#ifndef _FAL_CFG_H_
+#define _FAL_CFG_H_
+
+#include <rtconfig.h>
+#include <board.h>
+
+#define ONCHIP_FLASH_DEV_NAME                       "{{ onchip_device_macro }}"
+#define NOR_FLASH_DEV_NAME                          "{{ nor_device_macro }}"
+
+{% for part in onchip_partitions %}
+#define FAL_ONCHIP_START_ADDR_{{ '{:<12}'.format(part.name) }}          {{ part.start_addr }}
+#define FAL_ONCHIP_MAX_LEN_{{ '{:<12}'.format(part.name) }}             ({{ part.size_kb | int }}*1024)
+{% endfor %}
+
+{% for part in nor_partitions %}
+#define FAL_NORFLASH_START_ADDR_{{ '{:<12}'.format(part.name) }}        {{ part.start_addr }}
+#define FAL_NORFLASH_MAX_LEN_{{ '{:<12}'.format(part.name) }}           ({{ part.size_kb | int }}*1024)
+{% endfor %}
+
+/* ===================== Flash device Configuration ========================= */
+extern const struct fal_flash_dev at32_onchip_flash;
+extern struct fal_flash_dev nor_flash0;
+
+/* flash device table */
+#define FAL_FLASH_DEV_TABLE                                          \
+{                                                                    \
+    &at32_onchip_flash,                                              \
+    &nor_flash0,                                                     \
+}
+
+/* ====================== Partition Configuration ========================== */
+#ifdef FAL_PART_HAS_TABLE_CFG
+/* partition table */
+#define FAL_PART_TABLE                                               \
+{                                                                    \
+{% for part in ram_partitions %}
+    {FAL_PART_MAGIC_WORD,   "{{ part.name }}"{{ (12 - part.name|length) * ' ' }}, "{{ ram_device_macro }}"{{ (12 - ram_device_macro|length) * ' ' }}, {{ part.start_addr|string|rjust(12) }}, {{ part.size_bytes|string|rjust(12) }}, 0}, \
+{% endfor %}
+{% for part in onchip_partitions %}
+    {FAL_PART_MAGIC_WORD,   "{{ part.name }}"{{ (12 - part.name|length) * ' ' }}, "{{ onchip_device_macro }}"{{ (12 - onchip_device_macro|length) * ' ' }}, {{ part.start_addr|string|rjust(12) }}, {{ part.size_bytes|string|rjust(12) }}, 0}, \
+{% endfor %}
+{% for part in nor_partitions %}
+    {FAL_PART_MAGIC_WORD,   "{{ part.name }}"{{ (12 - part.name|length) * ' ' }}, "{{ nor_device_macro }}"{{ (12 - nor_device_macro|length) * ' ' }}, {{ part.start_addr|string|rjust(12) }}, {{ part.size_bytes|string|rjust(12) }}, 0}, \
+{% endfor %}
+}
+#endif /* FAL_PART_HAS_TABLE_CFG */
+
+#endif /* _FAL_CFG_H_ */
+

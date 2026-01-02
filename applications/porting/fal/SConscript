@@ -1,0 +1,10 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('src/*.c')
+path = [cwd]
+
+group = DefineGroup('port_fal', src, depend = [], CPPPATH = path)
+
+Return('group')

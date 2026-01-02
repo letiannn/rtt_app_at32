@@ -1,0 +1,8 @@
+*.o
+*.d
+*.obj
+*.old
+mdk/build/*
+project.*
+__pycache__/
+
