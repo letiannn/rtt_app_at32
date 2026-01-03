@@ -174,7 +174,8 @@
 #define RT_UNAMED_PIPE_NUMBER 64
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V1
-#define RT_SERIAL_RB_BUFSZ 512
+#define RT_SERIAL_USING_DMA
+#define RT_SERIAL_RB_BUFSZ 1024
 #define RT_USING_MTD_NOR
 #define RT_USING_SPI
 #define RT_USING_SFUD
@@ -294,6 +295,9 @@
 /* IoT Cloud */
 
 /* end of IoT Cloud */
+#define PKG_USING_OTA_DOWNLOADER
+#define PKG_USING_YMODEM_OTA
+#define PKG_USING_OTA_DOWNLOADER_V100
 /* end of IoT - internet of things */
 
 /* security packages */
@@ -375,6 +379,18 @@
 #define LFS_THREADSAFE
 #define LFS_LOOKAHEAD_MAX 128
 #define RT_DEF_LFS_DRIVERS 3
+#define PKG_USING_SYSWATCH
+#define SYSWATCH_EXCEPT_RESOLVE_MODE_0
+#define SYSWATCH_EXCEPT_RESOLVE_MODE 0
+#define SYSWATCH_EXCEPT_TIMEOUT 60
+#define SYSWATCH_EXCEPT_CONFIRM_TMO 15
+#define SYSWATCH_EXCEPT_RESUME_DLY 15
+#define SYSWATCH_THREAD_PRIO 0
+#define SYSWATCH_THREAD_STK_SIZE 1024
+#define SYSWATCH_THREAD_NAME "syswatch"
+#define SYSWATCH_WDT_NAME "wdt"
+#define SYSWATCH_WDT_TIMEOUT 5
+#define PKG_USING_SYSWATCH_LATEST_VERSION
 /* end of system packages */
 
 /* peripheral libraries and drivers */
@@ -521,6 +537,8 @@
 #define BSP_USING_ON_CHIP_FLASH
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_UART1_RX_USING_DMA
+#define BSP_UART1_TX_USING_DMA
 #define BSP_USING_SPI
 #define BSP_USING_SPI2
 /* end of On-chip Peripheral Drivers */

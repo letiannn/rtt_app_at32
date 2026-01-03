@@ -80,9 +80,9 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name>fromelf --bin !L --output rtthread.bin</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <RunUserProg2>1</RunUserProg2>
+            <UserProg1Name>fromelf --bin !L --output app.bin</UserProg1Name>
+            <UserProg2Name>.\tools\otapack\otapack.bat</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
@@ -337,9 +337,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__CLK_TCK=RT_TICK_PER_SECOND, LFS_CONFIG=lfs_config.h, __RTTHREAD__, AT32F403AVGT7, RT_USING_LIBC, USE_STDPERIPH_DRIVER, __STDC_LIMIT_MACROS, RT_USING_ARMLIBC</Define>
+              <Define>__STDC_LIMIT_MACROS, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND, USE_STDPERIPH_DRIVER, LFS_CONFIG=lfs_config.h, AT32F403AVGT7, RT_USING_ARMLIBC, RT_USING_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>..\rt-thread\components\dfs\dfs_v1\filesystems\romfs;..\rt-thread\components\drivers\smp_call;..\rt-thread\components\libc\posix\io\eventfd;..\rt-thread\components\drivers\include;..\libraries\rt_drivers;..\rt-thread\components\finsh;..\packages\FlashDB-v2.1.0\inc;..\rt-thread\components\drivers\include;..\rt-thread\components\drivers\include;..\rt-thread\components\net\at\include;..\board;..\packages\CMSIS-Core-latest\Include;..\rt-thread\libcpu\arm\cortex-m4;..\rt-thread\components\dfs\dfs_v1\include;..\rt-thread\components\libc\posix\io\epoll;..\packages\littlefs-v2.11.2;..\rt-thread\libcpu\arm\common;..\rt-thread\components\net\utest;..\rt-thread\components\libc\posix\io\poll;..\rt-thread\components\libc\compilers\common\extension\fcntl\octal;..\rt-thread\components\utilities\ulog;..\libraries\usbd_library\inc;..\rt-thread\components\dfs\dfs_v1\filesystems\devfs;..\rt-thread\components\utilities\ulog\backend;..\rt-thread\components\drivers\phy;..\rt-thread\components\libc\compilers\common\extension;..\rt-thread\components\libc\posix\ipc;..\applications\porting\dfs;..\rt-thread\components\libc\posix\io\stdio;..\packages\CmBacktrace-latest;..\rt-thread\components\drivers\include;..\rt-thread\include;..\rt-thread\components\drivers\spi\sfud\inc;..\rt-thread\components\drivers\include;..\rt-thread\components\libc\compilers\common\include;..\rt-thread\components\drivers\include;..\libraries\rt_drivers\config;..\rt-thread\components\drivers\spi;..\rt-thread\components\drivers\include;..\applications;..\board\inc;..\packages\at32f403a_407_hal_driver-latest\inc;..\packages\at32f403a_407_cmsis_driver-latest;..\applications\porting\fal;..;..\rt-thread\components\utilities\ymodem;..\rt-thread\components\drivers\include;..\rt-thread\components\fal\inc</IncludePath>
+              <IncludePath>..\libraries\rt_drivers;..\rt-thread\components\libc\compilers\common\extension;..\rt-thread\components\libc\posix\ipc;..\rt-thread\components\drivers\spi\sfud\inc;..\packages\FlashDB-v2.1.0\inc;..\rt-thread\libcpu\arm\common;..\packages\at32f403a_407_hal_driver-latest\inc;..\rt-thread\components\drivers\include;..\board\inc;..\libraries\rt_drivers\config;..\packages\CMSIS-Core-latest\Include;..\rt-thread\components\drivers\include;..\packages\at32f403a_407_cmsis_driver-latest;..\rt-thread\components\libc\compilers\common\extension\fcntl\octal;..\applications\porting\fal;..\rt-thread\components\libc\posix\io\stdio;..\rt-thread\components\utilities\ymodem;..\rt-thread\components\drivers\include;..;..\rt-thread\components\finsh;..\applications;..\rt-thread\include;..\rt-thread\components\drivers\include;..\packages\littlefs-v2.11.2;..\rt-thread\components\drivers\include;..\applications\porting\dfs;..\rt-thread\components\dfs\dfs_v1\filesystems\devfs;..\rt-thread\components\libc\posix\io\epoll;..\libraries\usbd_library\inc;..\rt-thread\components\drivers\include;..\rt-thread\components\drivers\spi;..\packages\syswatch-latest\inc;..\rt-thread\components\drivers\phy;..\rt-thread\components\utilities\ulog\backend;..\rt-thread\components\net\at\include;..\board;..\rt-thread\components\drivers\include;..\packages\ota_downloader-v1.0.0;..\rt-thread\libcpu\arm\cortex-m4;..\applications\porting\ulog;..\rt-thread\components\net\utest;..\packages\CmBacktrace-latest;..\rt-thread\components\libc\posix\io\eventfd;..\rt-thread\components\libc\compilers\common\include;..\rt-thread\components\utilities\ulog;..\rt-thread\components\libc\posix\io\poll;..\rt-thread\components\drivers\smp_call;..\rt-thread\components\drivers\include;..\rt-thread\components\dfs\dfs_v1\include;..\rt-thread\components\dfs\dfs_v1\filesystems\romfs;..\rt-thread\components\fal\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -404,14 +404,14 @@
               <FilePath>..\rt-thread\components\net\at\src\at_cli.c</FilePath>
             </File>
             <File>
-              <FileName>at_utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\net\at\src\at_utils.c</FilePath>
-            </File>
-            <File>
               <FileName>at_server.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\components\net\at\src\at_server.c</FilePath>
+            </File>
+            <File>
+              <FileName>at_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\components\net\at\src\at_utils.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -419,14 +419,14 @@
           <GroupName>cm_backtrace</GroupName>
           <Files>
             <File>
-              <FileName>cmb_port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\CmBacktrace-latest\cmb_port.c</FilePath>
-            </File>
-            <File>
               <FileName>cmb_flash_log.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\packages\CmBacktrace-latest\cmb_flash_log.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmb_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\CmBacktrace-latest\cmb_port.c</FilePath>
             </File>
             <File>
               <FileName>cm_backtrace.c</FileName>
@@ -1613,9 +1613,9 @@
           <GroupName>Fal</GroupName>
           <Files>
             <File>
-              <FileName>fal_rtt.c</FileName>
+              <FileName>fal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\fal\src\fal_rtt.c</FilePath>
+              <FilePath>..\rt-thread\components\fal\src\fal.c</FilePath>
             </File>
             <File>
               <FileName>fal_flash_sfud_port.c</FileName>
@@ -1623,9 +1623,9 @@
               <FilePath>..\rt-thread\components\fal\samples\porting\fal_flash_sfud_port.c</FilePath>
             </File>
             <File>
-              <FileName>fal_partition.c</FileName>
+              <FileName>fal_rtt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\fal\src\fal_partition.c</FilePath>
+              <FilePath>..\rt-thread\components\fal\src\fal_rtt.c</FilePath>
             </File>
             <File>
               <FileName>fal_flash.c</FileName>
@@ -1633,9 +1633,9 @@
               <FilePath>..\rt-thread\components\fal\src\fal_flash.c</FilePath>
             </File>
             <File>
-              <FileName>fal.c</FileName>
+              <FileName>fal_partition.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\fal\src\fal.c</FilePath>
+              <FilePath>..\rt-thread\components\fal\src\fal_partition.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1984,19 +1984,19 @@
           <GroupName>Finsh</GroupName>
           <Files>
             <File>
-              <FileName>msh.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\finsh\msh.c</FilePath>
-            </File>
-            <File>
-              <FileName>shell.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\finsh\shell.c</FilePath>
-            </File>
-            <File>
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\components\finsh\cmd.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh_parse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\components\finsh\msh_parse.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\components\finsh\msh.c</FilePath>
             </File>
             <File>
               <FileName>msh_file.c</FileName>
@@ -2004,9 +2004,9 @@
               <FilePath>..\rt-thread\components\finsh\msh_file.c</FilePath>
             </File>
             <File>
-              <FileName>msh_parse.c</FileName>
+              <FileName>shell.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\finsh\msh_parse.c</FilePath>
+              <FilePath>..\rt-thread\components\finsh\shell.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2014,14 +2014,19 @@
           <GroupName>FlashDB</GroupName>
           <Files>
             <File>
-              <FileName>fdb_tsdb.c</FileName>
+              <FileName>fdb_kvdb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_tsdb.c</FilePath>
+              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_kvdb.c</FilePath>
             </File>
             <File>
               <FileName>fdb_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_utils.c</FilePath>
+            </File>
+            <File>
+              <FileName>fdb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb.c</FilePath>
             </File>
             <File>
               <FileName>fdb_file.c</FileName>
@@ -2034,14 +2039,9 @@
               <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_cmd.c</FilePath>
             </File>
             <File>
-              <FileName>fdb_kvdb.c</FileName>
+              <FileName>fdb_tsdb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_kvdb.c</FilePath>
-            </File>
-            <File>
-              <FileName>fdb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb.c</FilePath>
+              <FilePath>..\packages\FlashDB-v2.1.0\src\fdb_tsdb.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2955,9 +2955,9 @@
               <FilePath>..\rt-thread\src\klibc\kstdio.c</FilePath>
             </File>
             <File>
-              <FileName>kstring.c</FileName>
+              <FileName>rt_vsscanf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\rt-thread\src\klibc\kstring.c</FilePath>
+              <FilePath>..\rt-thread\src\klibc\rt_vsscanf.c</FilePath>
             </File>
             <File>
               <FileName>kerrno.c</FileName>
@@ -2965,14 +2965,14 @@
               <FilePath>..\rt-thread\src\klibc\kerrno.c</FilePath>
             </File>
             <File>
+              <FileName>kstring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\src\klibc\kstring.c</FilePath>
+            </File>
+            <File>
               <FileName>rt_vsnprintf_std.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\src\klibc\rt_vsnprintf_std.c</FilePath>
-            </File>
-            <File>
-              <FileName>rt_vsscanf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\src\klibc\rt_vsscanf.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3010,14 +3010,14 @@
           <GroupName>libraries</GroupName>
           <Files>
             <File>
-              <FileName>at32f403a_407_i2c.c</FileName>
+              <FileName>at32f403a_407_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_i2c.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_spi.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_dma.c</FileName>
+              <FileName>at32f403a_407_tmr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_dma.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_tmr.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_usb.c</FileName>
@@ -3025,9 +3025,9 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_usb.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_rtc.c</FileName>
+              <FileName>at32f403a_407_acc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_rtc.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_acc.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_exint.c</FileName>
@@ -3035,9 +3035,24 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_exint.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_crc.c</FileName>
+              <FileName>at32f403a_407_xmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_crc.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_xmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_dma.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_crm.c</FileName>
@@ -3045,14 +3060,24 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_crm.c</FilePath>
             </File>
             <File>
+              <FileName>at32f403a_407_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_i2c.c</FilePath>
+            </File>
+            <File>
               <FileName>at32f403a_407_wdt.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_wdt.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_dac.c</FileName>
+              <FileName>at32f403a_407_wwdt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_dac.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_wwdt.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_emac.c</FileName>
@@ -3060,9 +3085,29 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_emac.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_acc.c</FileName>
+              <FileName>at32f403a_407_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_acc.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_pwc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_pwc.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>at32f403a_407_bpr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_bpr.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_sdio.c</FileName>
@@ -3070,9 +3115,9 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_sdio.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_debug.c</FileName>
+              <FileName>at32f403a_407_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_debug.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_adc.c</FilePath>
             </File>
             <File>
               <FileName>at32f403a_407_misc.c</FileName>
@@ -3085,54 +3130,9 @@
               <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_can.c</FilePath>
             </File>
             <File>
-              <FileName>at32f403a_407_pwc.c</FileName>
+              <FileName>at32f403a_407_dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_pwc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_tmr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_tmr.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_bpr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_bpr.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_xmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_xmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_wwdt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_wwdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_usart.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>at32f403a_407_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_spi.c</FilePath>
+              <FilePath>..\packages\at32f403a_407_hal_driver-latest\src\at32f403a_407_dac.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3140,24 +3140,34 @@
           <GroupName>littlefs</GroupName>
           <Files>
             <File>
-              <FileName>lfs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\packages\littlefs-v2.11.2\lfs.c</FilePath>
-            </File>
-            <File>
               <FileName>lfs_util.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\packages\littlefs-v2.11.2\lfs_util.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_lfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\littlefs-v2.11.2\dfs_lfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>lfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\littlefs-v2.11.2\lfs.c</FilePath>
             </File>
             <File>
               <FileName>lfs_crc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\packages\littlefs-v2.11.2\lfs_crc.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ota_downloader</GroupName>
+          <Files>
             <File>
-              <FileName>dfs_lfs.c</FileName>
+              <FileName>ymodem_ota.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\packages\littlefs-v2.11.2\dfs_lfs.c</FilePath>
+              <FilePath>..\packages\ota_downloader-v1.0.0\src\ymodem_ota.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3172,12 +3182,37 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>port_ulog</GroupName>
+          <Files>
+            <File>
+              <FileName>ulog_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\applications\porting\ulog\ulog_cfg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>POSIX</GroupName>
           <Files>
             <File>
               <FileName>stdio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\components\libc\posix\io\stdio\stdio.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>syswatch</GroupName>
+          <Files>
+            <File>
+              <FileName>syswatch_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\syswatch-latest\src\syswatch_test.c</FilePath>
+            </File>
+            <File>
+              <FileName>syswatch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\packages\syswatch-latest\src\syswatch.c</FilePath>
             </File>
           </Files>
         </Group>

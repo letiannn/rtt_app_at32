@@ -1,5 +1,10 @@
 [
  {
+  "name": "OTA_DOWNLOADER",
+  "path": "/packages/iot/ota_downloader",
+  "ver": "v1.0.0"
+ },
+ {
   "name": "CMBACKTRACE",
   "path": "/packages/tools/CmBacktrace",
   "ver": "latest"
@@ -18,6 +23,11 @@
   "name": "LITTLEFS",
   "path": "/packages/system/littlefs",
   "ver": "v2.11.2"
+ },
+ {
+  "name": "SYSWATCH",
+  "path": "/packages/system/syswatch",
+  "ver": "latest"
  },
  {
   "name": "AT32F403A_407_HAL_DRIVER",

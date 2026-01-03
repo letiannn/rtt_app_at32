@@ -7,6 +7,9 @@ path = [cwd]
 if GetDepend('ULOG_BACKEND_USING_CONSOLE'):
     src += ['backend/console_be.c']
 
+if GetDepend('RT_USING_UTESTCASES'):
+    src += ['backend/console_be_tc.c']
+
 if GetDepend('ULOG_BACKEND_USING_FILE'):
     path +=  [cwd + '/backend']
     src += ['backend/file_be.c']
