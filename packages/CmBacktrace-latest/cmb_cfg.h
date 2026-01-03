@@ -32,6 +32,10 @@
 /* print line, must config by user */
 #include <rtthread.h>
 
+#ifdef RT_USING_ULOG
+#undef RT_USING_ULOG
+#endif
+
 #ifndef RT_USING_ULOG
 #ifndef CMB_USING_FAL_FLASH_LOG
 #define cmb_println(...)               rt_kprintf(__VA_ARGS__);rt_kprintf("\r\n")
