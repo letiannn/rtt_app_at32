@@ -38,5 +38,10 @@
   "name": "AT32F403A_407_CMSIS_DRIVER",
   "path": "/packages/peripherals/hal-sdk/at32/at32f403a_407_cmsis_driver",
   "ver": "latest"
+ },
+ {
+  "name": "CAN_UDS",
+  "path": "/packages/peripherals/can_uds",
+  "ver": "v1.0.0"
  }
 ]

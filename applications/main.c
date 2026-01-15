@@ -55,7 +55,7 @@ int rt_fal_init(void)
 {
     fal_init();
     return 0;
-}
+} 
 INIT_COMPONENT_EXPORT(rt_fal_init);
 
 int dfs_mount_init(void)
@@ -117,9 +117,5 @@ INIT_ENV_EXPORT(flashdb_init);
 
 int main(void)
 {
-    while (1)
-    {
-        rt_thread_mdelay(5000);
-    }
     return 0;
 }

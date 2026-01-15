@@ -1,0 +1,43 @@
+menu "Custom Components"
+
+    menuconfig CCMP_USING_D2S
+        bool "d2s:easy dbc file to c struct code"
+        default n
+        select RT_USING_ULOG
+        if CCMP_USING_D2S
+        config CCMP_USING_EXAMPLE_D2S
+            bool "open example code"
+            default n
+        endif
+
+    menuconfig CCMP_USING_EBUS
+        bool "ebus:event msg bus"
+        default n
+        select RT_USING_ULOG
+        if CCMP_USING_EBUS
+        config CCMP_USING_EXAMPLE_EBUS
+            bool "open example code"
+            default n
+        endif
+
+    menuconfig CCMP_USING_MMGR
+        bool "mmgr:easy to memory data pack or unpack"
+        default n
+        select RT_USING_ULOG
+        if CCMP_USING_MMGR
+        config CCMP_USING_EXAMPLE_MMGR
+            bool "open example code"
+            default n
+        endif
+
+    menuconfig CCMP_USING_QSM
+        bool "qsm:mini state machine"
+        default n
+        select RT_USING_ULOG
+        if CCMP_USING_QSM
+        config CCMP_USING_EXAMPLE_QSM
+            bool "open example code"
+            default n
+        endif
+
+endmenu

@@ -247,8 +247,8 @@ enum CANBAUD
  * @addtogroup group_drivers_can
  * @{
  */
-#define CAN_RX_FIFO0                (0x00000000U)  /*!< CAN receive FIFO 0 */
-#define CAN_RX_FIFO1                (0x00000001U)  /*!< CAN receive FIFO 1 */
+#define RT_CAN_RX_FIFO0                (0x00000000U)  /*!< CAN receive FIFO 0 */
+#define RT_CAN_RX_FIFO1                (0x00000001U)  /*!< CAN receive FIFO 1 */
 
 /**
  * @brief CAN filter item structure
@@ -396,7 +396,7 @@ struct can_configure
 
 #define CANDEFAULTCONFIG \
 {\
-        CAN1MBaud,\
+        CAN500kBaud,\
         RT_CANMSG_BOX_SZ,\
         RT_CANSND_BOX_NUM,\
         RT_CAN_MODE_NORMAL,\

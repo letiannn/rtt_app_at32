@@ -734,9 +734,9 @@ static void _can_rx_isr(struct rt_can_device *can, rt_uint32_t fifo)
 
     switch (fifo)
     {
-    case CAN_RX_FIFO0:
+    case RT_CAN_RX_FIFO0:
         /* save to user list */
-        if (can_receive_message_pending_get(hcan->can_x, CAN_RX_FIFO0) && \
+        if (can_receive_message_pending_get(hcan->can_x, RT_CAN_RX_FIFO0) && \
             can_flag_get(hcan->can_x, CAN_RF0MN_FLAG))
         {
             rt_hw_can_isr(can, RT_CAN_EVENT_RX_IND | fifo << 8);
@@ -756,9 +756,9 @@ static void _can_rx_isr(struct rt_can_device *can, rt_uint32_t fifo)
             rt_hw_can_isr(can, RT_CAN_EVENT_RXOF_IND | fifo << 8);
         }
         break;
-    case CAN_RX_FIFO1:
+    case RT_CAN_RX_FIFO1:
         /* save to user list */
-        if (can_receive_message_pending_get(hcan->can_x, CAN_RX_FIFO1) && \
+        if (can_receive_message_pending_get(hcan->can_x, RT_CAN_RX_FIFO1) && \
             can_flag_get(hcan->can_x, CAN_RF1MN_FLAG))
         {
             rt_hw_can_isr(can, RT_CAN_EVENT_RX_IND | fifo << 8);
@@ -838,7 +838,7 @@ void CAN1_TX_IRQ_HANDLER(void)
 void CAN1_RX0_IRQ_HANDLER(void)
 {
     rt_interrupt_enter();
-    _can_rx_isr(&can_instance1.device, CAN_RX_FIFO0);
+    _can_rx_isr(&can_instance1.device, RT_CAN_RX_FIFO0);
     rt_interrupt_leave();
 }
 
@@ -848,7 +848,7 @@ void CAN1_RX0_IRQ_HANDLER(void)
 void CAN1_RX1_IRQ_HANDLER(void)
 {
     rt_interrupt_enter();
-    _can_rx_isr(&can_instance1.device, CAN_RX_FIFO1);
+    _can_rx_isr(&can_instance1.device, RT_CAN_RX_FIFO1);
     rt_interrupt_leave();
 }
 
@@ -968,7 +968,7 @@ void CAN2_TX_IRQHandler(void)
 void CAN2_RX0_IRQHandler(void)
 {
     rt_interrupt_enter();
-    _can_rx_isr(&can_instance2.device, CAN_RX_FIFO0);
+    _can_rx_isr(&can_instance2.device, RT_CAN_RX_FIFO0);
     rt_interrupt_leave();
 }
 
@@ -978,7 +978,7 @@ void CAN2_RX0_IRQHandler(void)
 void CAN2_RX1_IRQHandler(void)
 {
     rt_interrupt_enter();
-    _can_rx_isr(&can_instance2.device, CAN_RX_FIFO1);
+    _can_rx_isr(&can_instance2.device, RT_CAN_RX_FIFO1);
     rt_interrupt_leave();
 }
 

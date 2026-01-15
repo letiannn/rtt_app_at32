@@ -1,0 +1,22 @@
+{
+  "Items":  
+  [
+    {
+      "Name":"Test Group 1",
+      "Type":      0,
+      "GUID":"s8088906507217988921997102",
+      "SEL":"Checked",
+      "REG":"False",
+      "Items":      
+      [
+        {
+          "Name":"Uds Flow 1",
+          "Type":          1,
+          "GUID":"s80970003038522454561824601",
+          "SEL":"Checked",
+          "REG":"False"        
+        }      
+      ]    
+    }  
+  ]
+}

@@ -423,6 +423,6 @@ int syswatch_init(void)
     
     return RT_EOK;
 }
-INIT_COMPONENT_EXPORT(syswatch_init);
+//INIT_COMPONENT_EXPORT(syswatch_init);
 
 #endif  //SYSWATCH_USING

@@ -72,7 +72,7 @@
 
 /* end of rt_strnlen options */
 /* end of klibc options */
-#define RT_NAME_MAX 12
+#define RT_NAME_MAX 24
 #define RT_CPUS_NR 1
 #define RT_ALIGN_SIZE 8
 #define RT_THREAD_PRIORITY_32
@@ -176,7 +176,13 @@
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 1024
+#define RT_USING_CAN
+#define RT_CANMSG_BOX_SZ 16
+#define RT_CANSND_BOX_NUM 1
+#define RT_CANSND_MSG_TIMEOUT 100
+#define RT_CAN_NB_TX_FIFO_SIZE 128
 #define RT_USING_MTD_NOR
+#define RT_USING_RTC
 #define RT_USING_SPI
 #define RT_USING_SFUD
 #define RT_SFUD_USING_SFDP
@@ -440,6 +446,10 @@
 /* HPMicro SDK */
 
 /* end of HPMicro SDK */
+
+/* FT32 HAL & SDK Drivers */
+
+/* end of FT32 HAL & SDK Drivers */
 /* end of HAL & SDK Drivers */
 
 /* sensors drivers */
@@ -449,6 +459,48 @@
 /* touch drivers */
 
 /* end of touch drivers */
+#define PKG_USING_CAN_UDS
+
+/* Logging Configuration */
+
+#define UDS_LOG_LEVEL 5
+#define UDS_RTTHREAD_ULOG_ENABLED
+/* end of Logging Configuration */
+
+/* UDS Server Configuration */
+
+#define UDS_RTT_EVENT_TABLE_SIZE 32
+
+/* Enabled Services */
+
+#define UDS_ENABLE_SESSION_SVC
+#define UDS_P2_MS_STD 150
+#define UDS_P2_STAR_MS_STD 2000
+#define UDS_P2_MS_EXT 5000
+#define UDS_P2_STAR_MS_EXT 5000
+#define UDS_ENABLE_0X11_RESET_SVC
+#define UDS_RESET_DELAY_MS 50
+#define UDS_ENABLE_SECURITY_SVC
+#define UDS_SEC_DEFAULT_LEVEL 0x01
+#define UDS_SEC_DEFAULT_KEY 0xA5A5A5A5
+#define UDS_ENABLE_0X28_COMM_CTRL_SVC
+#define UDS_COMM_CTRL_ID 512
+#define UDS_ENABLE_PARAM_SVC
+#define UDS_PARAM_RDBI_BUF_SIZE 64
+#define UDS_ENABLE_DOWNLOAD_SVC
+#define UDS_BLACK_CHUNK_SIZE 4093
+/* end of Enabled Services */
+/* end of UDS Server Configuration */
+#define UDS_USING_EXAMPLE
+
+/* Example Configuration */
+
+#define UDS_EXAMPLE_LED_CTRL_DID 0x0100
+#define UDS_EXAMPLE_PIN_LED_R -1
+#define UDS_EXAMPLE_PIN_LED_G -1
+#define UDS_EXAMPLE_PIN_LED_B -1
+/* end of Example Configuration */
+#define PKG_USING_CAN_UDS_V100
 /* end of peripheral libraries and drivers */
 
 /* AI packages */
@@ -535,13 +587,29 @@
 
 #define BSP_USING_GPIO
 #define BSP_USING_ON_CHIP_FLASH
+#define BSP_USING_RTC
+#define BSP_RTC_USING_LEXT
 #define BSP_USING_UART
 #define BSP_USING_UART1
 #define BSP_UART1_RX_USING_DMA
 #define BSP_UART1_TX_USING_DMA
 #define BSP_USING_SPI
 #define BSP_USING_SPI2
+#define BSP_USING_CAN
+#define BSP_USING_CAN1
 /* end of On-chip Peripheral Drivers */
 /* end of Hardware Drivers Config */
+
+/* Custom Components */
+
+#define CCMP_USING_D2S
+#define CCMP_USING_EXAMPLE_D2S
+#define CCMP_USING_EBUS
+#define CCMP_USING_EXAMPLE_EBUS
+#define CCMP_USING_MMGR
+#define CCMP_USING_EXAMPLE_MMGR
+#define CCMP_USING_QSM
+#define CCMP_USING_EXAMPLE_QSM
+/* end of Custom Components */
 
 #endif
